@@ -8,19 +8,19 @@ URI: ``/duenos``
 ``POST``
 ``/``
 ##### Parámetros
-- *nombres* _obligatorio_
-- *apellidos* _obligatorio_
-- *celular* _12 dígitos_
-- *email* _email válido_
+- nombres "obligatorio"
+- apellidos "obligatorio"
+- celular "12 dígitos"
+- email "email válido"
 #### Actualización
 ``PUT``
 ``/1``
 ##### Parámetros
-- *id* _obligatorio, id de registro a editar_
-- *nombres* _maximo 255 caracteres_
-- *apellidos* _maximo 255 caracteres_
-- *celular* _12 dígitos_
-- *email* _email válido_
+- id "obligatorio, id de registro a editar"
+- nombres "maximo 255 caracteres"
+- apellidos "maximo 255 caracteres"
+- celular "12 dígitos"
+- email "email válido"
 
 #### Eliminación
 ``DELETE``
@@ -29,6 +29,9 @@ URI: ``/duenos``
 #### Consulta
 ``GET``
 ``/``
+#### Consulta Especifica
+``GET``
+``/{id de Propietario}``
 
 ### Equipos
 URI: ``/equipos``
@@ -36,19 +39,19 @@ URI: ``/equipos``
 ``POST``
 ``/``
 ##### Parámetros
-- *nick* _obligatorio_
-- *serial* _obligatorio_
-- *ip* 
-- *propietario* _id de propietario válido_
+- nick "obligatorio"
+- serial "obligatorio"
+- ip 
+- propietario "id de propietario válido"
 #### Actualización
 ``PUT``
 ``/1``
 ##### Parámetros
-- *id* _obligatorio, id de registro a editar_
-- *nick* _maximo 255 caracteres_
-- *serial* _maximo 255 caracteres_
-- *ip*
-- *propietario* _id de propietario válido_
+- id "obligatorio, id de registro a editar"
+- nick "maximo 255 caracteres"
+- serial "maximo 255 caracteres"
+- ip
+- propietario "id de propietario válido"
 
 #### Eliminación
 ``DELETE``
@@ -58,18 +61,26 @@ URI: ``/equipos``
 ``GET``
 ``/``
 
+#### Consulta Especifica
+``GET``
+``/{id de Equipo}``
+
 ### Registros
 URI: ``/registros``
 #### Creación
 ``POST``
 ``/``
 ##### Parámetros
-- *fecha* _fecha válida_
-- *log* _obligatorio_
-- *saldo* _numérico_
-- *equipo_id* _id del equipo_
+- fecha "fecha válida"
+- log "obligatorio"
+- saldo "numérico"
+- equipo_id "id del equipo"
 
 #### Consulta
 ``GET``
 ``/``
+
+#### Consulta Especifica
+``GET``
+``/{id de Equipo}``
 
