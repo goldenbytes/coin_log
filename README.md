@@ -2,6 +2,7 @@
 
 ## API CRUD
 Endpoint `https://coin-log.herokuapp.com/api`
+---
 ### Propietarios
 URI: ``/duenos``
 #### Creación
@@ -32,7 +33,7 @@ URI: ``/duenos``
 #### Consulta Especifica
 ``GET``
 ``/{id de Propietario}``
-
+---
 ### Equipos
 URI: ``/equipos``
 #### Creación
@@ -64,7 +65,7 @@ URI: ``/equipos``
 #### Consulta Especifica
 ``GET``
 ``/{id de Equipo}``
-
+---
 ### Registros
 URI: ``/registros``
 #### Creación
