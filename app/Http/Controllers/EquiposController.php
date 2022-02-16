@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEquipo;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class EquiposController extends Controller
 {
@@ -37,6 +38,7 @@ class EquiposController extends Controller
     public function store(StoreEquipo $request)
     {
         $nuevo = new Equipo();
+        $nuevo->id_eq = Str::uuid()->toString();
         $nuevo->nombre_eq = $request->nick;
         $nuevo->serial_eq = $request->serial;
         $nuevo->ip_eq = $request->ip;
