@@ -53,7 +53,8 @@ class DuenosController extends Controller
      */
     public function show($id)
     {
-        return response()->json(Dueno::find($id));
+        $aux = Dueno::with('equipos')->find($id);
+        return response()->json($aux);
     }
 
     /**
