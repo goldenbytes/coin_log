@@ -16,7 +16,7 @@ URI: ``/duenos``
 ``PUT``
 ``/1``
 ##### Parámetros
-- id "obligatorio, id de registro a editar"
+- id "obligatorio, id de propietario a editar"
 - nombres "maximo 255 caracteres"
 - apellidos "maximo 255 caracteres"
 - celular "12 dígitos"
@@ -24,7 +24,7 @@ URI: ``/duenos``
 
 #### Eliminación
 ``DELETE``
-``/{id}``
+``/{id de propietario}``
 
 #### Consulta
 ``GET``
@@ -42,12 +42,12 @@ URI: ``/equipos``
 - nick "obligatorio"
 - serial "obligatorio"
 - ip 
-- propietario "id de propietario válido"
+- propietario "obligatorio, id de propietario válido"
 #### Actualización
 ``PUT``
 ``/1``
 ##### Parámetros
-- id "obligatorio, id de registro a editar"
+- id "obligatorio, id de equipo a editar"
 - nick "maximo 255 caracteres"
 - serial "maximo 255 caracteres"
 - ip
@@ -55,7 +55,7 @@ URI: ``/equipos``
 
 #### Eliminación
 ``DELETE``
-``/{id}``
+``/{id de equipo}``
 
 #### Consulta
 ``GET``
@@ -72,9 +72,9 @@ URI: ``/registros``
 ``/``
 ##### Parámetros
 - fecha "fecha válida"
-- log "obligatorio"
+- log "obligatorio texto sin límite"
 - saldo "numérico"
-- equipo_id "id del equipo"
+- equipo_id "obligatorio, id del equipo"
 
 #### Consulta
 ``GET``
