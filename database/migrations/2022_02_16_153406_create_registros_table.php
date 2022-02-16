@@ -15,10 +15,10 @@ class CreateRegistrosTable extends Migration
     {
         Schema::create('registros', function (Blueprint $table) {
             $table->foreignUuid('equipo_re');
-            $table->dateTime('fecha_re')->nullable();
             $table->text('log_re');
+            $table->dateTime('fecha_re')->nullable();
             $table->float('saldo_re', 8, 2)->nullable();
-            $table->dateTime('created_at');
+            $table->timestamp('created_at');
             $table->foreign('equipo_re')->references('id_eq')->on('equipos');
         });
     }
@@ -30,6 +30,8 @@ class CreateRegistrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registros');
+        Schema::dropIfExists('registros', function(Blueprint $table){
+            $table->dropForeign(['equipo_re']);
+        });
     }
 }

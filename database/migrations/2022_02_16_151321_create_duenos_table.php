@@ -17,8 +17,8 @@ class CreateDuenosTable extends Migration
             $table->id('id_du');
             $table->string('nombres_du');
             $table->string('apellidos_du');
-            $table->string('celular_du');
-            $table->string('email_du');
+            $table->string('celular_du')->nullable();
+            $table->string('email_du')->nullable();
             $table->timestamps();
         });
     }

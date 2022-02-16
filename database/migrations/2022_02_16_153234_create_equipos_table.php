@@ -14,10 +14,10 @@ class CreateEquiposTable extends Migration
     public function up()
     {
         Schema::create('equipos', function (Blueprint $table) {
-            $table->uuid('id_eq');
+            $table->uuid('id_eq')->primary();
             $table->string('nombre_eq');
             $table->string('serial_eq');
-            $table->ipAddress('ip_eq');
+            $table->ipAddress('ip_eq')->nullable();
             $table->foreignId('propietario_eq');
             $table->foreign('propietario_eq')->references('id_du')->on('duenos');
             $table->timestamps();
@@ -31,6 +31,8 @@ class CreateEquiposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipos');
+        Schema::dropIfExists('equipos',function(Blueprint $table){
+        $table->dropForeign(['propietario_eq']);
+    });
     }
 }
