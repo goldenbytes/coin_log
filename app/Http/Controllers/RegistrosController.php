@@ -12,11 +12,11 @@ class RegistrosController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        return response()->json(Registro::paginate(100));
+        return response()->json(Registro::paginate(10));
     }
 
     /**
