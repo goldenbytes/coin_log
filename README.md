@@ -74,7 +74,8 @@ URI: ``/registros``
 ``/``
 ##### Parámetros
 - fecha "fecha válida"
-- log "obligatorio texto sin límite"
+- log "texto sin límite"
+- tipo "no es obligatorio _Evento_ por defecto"
 - saldo "numérico"
 - equipo_id "obligatorio, id del equipo"
 
