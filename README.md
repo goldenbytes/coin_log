@@ -66,6 +66,38 @@ URI: ``/equipos``
 #### Consulta Especifica
 ``GET``
 ``/{id de Equipo}``
+
+### Planes
+---
+URI: ``/planes``
+#### Creación
+``POST``
+``/``
+##### Parámetros
+- nick "obligatorio"
+- tiempo "obligatorio tiempo en horas minutos y segundo" 
+- valor "obligatorio, decimal con dos decimales"
+#### Actualización
+``PUT``
+``/1``
+##### Parámetros
+- id "obligatorio, id de plan a editar"
+- nick "maximo 255 caracteres"
+- tiempo "tiempo en horas minutos y segundo"
+- valor "decimal con dos decimales"
+
+#### Eliminación
+``DELETE``
+``/{id de plan}``
+
+#### Consulta
+``GET``
+``/``
+
+#### Consulta Especifica
+``GET``
+``/{id de Plan}``
+
 ### Registros
 ---
 URI: ``/registros``

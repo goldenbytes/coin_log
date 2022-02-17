@@ -19,4 +19,13 @@ class Equipo extends Model
     public function logs(){
         return $this->hasMany(Registro::class,"id_eq","equipo_re");
     }
+
+    public function planes()
+    {
+        return $this->belongsToMany(Plan::class,
+            'plan_equipo',
+            'equipo_pe',
+            'plan_pe');
+    }
+
 }

@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('duenos',\App\Http\Controllers\DuenosController::class);
 Route::resource('equipos',\App\Http\Controllers\EquiposController::class);
 Route::resource('registros',\App\Http\Controllers\RegistrosController::class);
+Route::resource('planes',\App\Http\Controllers\PlanesController::class);
