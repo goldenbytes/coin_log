@@ -25,7 +25,8 @@ class StoreRegistro extends FormRequest
     {
         return [
             'fecha'=>'nullable|date',
-            'log'=>'required',
+            'log'=>'nullable',
+            'tipo'=>'nullable|max:255',
             'saldo'=>'nullable|numeric',
             'equipo_id'=>'required|exists:equipos,id_eq',
         ];
