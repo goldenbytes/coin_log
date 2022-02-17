@@ -15,7 +15,8 @@ class CreateRegistrosTable extends Migration
     {
         Schema::create('registros', function (Blueprint $table) {
             $table->foreignUuid('equipo_re');
-            $table->text('log_re');
+            $table->text('log_re')->nullable();
+            $table->string('tipo_re')->default('Evento');
             $table->dateTime('fecha_re')->nullable();
             $table->float('saldo_re', 8, 2)->nullable();
             $table->timestamp('created_at');
