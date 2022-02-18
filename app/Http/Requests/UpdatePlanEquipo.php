@@ -33,7 +33,7 @@ class UpdatePlanEquipo extends FormRequest
             ],
             'new_plan_id' => [
                 'required', 'exists:planes,id_pl',
-//                Rule::unique('plan_equipo','plan_pe')->where('equipo_pe', $this->equipo_id)
+                Rule::unique('plan_equipo','plan_pe')->where('equipo_pe', $this->equipo_id)
             ],
         ];
     }

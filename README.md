@@ -119,3 +119,27 @@ URI: ``/registros``
 ``GET``
 ``/{id de Equipo}``
 
+### Planes para Equipos
+---
+URI: ``/plan/equipo``
+#### Creación
+``POST``
+``/``
+##### Parámetros
+- plan_id "obligatorio id de plan"
+- equipo_id "obligatorio id de equipo"
+
+#### Actualización
+``PUT``
+``/``
+##### Parámetros
+- plan_id "obligatorio id de plan"
+- equipo_id "obligatorio id de equipo"
+- new_plan_id "obligatorio id de nuevo plan"
+
+#### Eliminación
+``DELETE``
+``/``
+##### Parámetros
+- plan_id "obligatorio id de plan"
+- equipo_id "obligatorio id de equipo"
