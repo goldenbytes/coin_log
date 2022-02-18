@@ -40,7 +40,9 @@ class RegistrosController extends Controller
         $nuevo = new Registro();
         $nuevo->equipo_re = $request->equipo_id;
         $nuevo->log_re = $request->log;
-        $nuevo->tipo_re = $request->tipo;
+        if($request->tipo){
+            $nuevo->tipo_re = $request->tipo;
+        }
         $nuevo->fecha_re = $request->fecha;
         $nuevo->saldo_re = $request->saldo;
         $nuevo->save();

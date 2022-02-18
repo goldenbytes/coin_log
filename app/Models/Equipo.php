@@ -25,7 +25,9 @@ class Equipo extends Model
         return $this->belongsToMany(Plan::class,
             'plan_equipo',
             'equipo_pe',
-            'plan_pe');
+            'plan_pe',
+            'id_eq',
+            'id_pl')->withTimestamps();
     }
 
 }

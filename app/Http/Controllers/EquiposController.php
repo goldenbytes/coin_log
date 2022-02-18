@@ -17,7 +17,7 @@ class EquiposController extends Controller
      */
     public function index()
     {
-        return response()->json(Equipo::all());
+        return response()->json(Equipo::with('planes')->get());
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePlan;
+use App\Http\Requests\UpdatePlan;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 
@@ -74,7 +75,7 @@ class PlanesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePlan $request, $id)
     {
         $edit = Plan::find($request->id);
         $edit->nombre_pl = $request->nick ? $request->nick : $edit->nombre_pl;

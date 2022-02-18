@@ -26,8 +26,20 @@ class UpdatePlan extends FormRequest
         return [
             'id'=>'required|exists:planes,id_pl',
             'nick'=>'nullable|max:255',
-            'tiempo'=>'nullable|date',
+            'tiempo'=>'required|date_format:y:i:s',
             'valor'=>'nullable|numeric',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'tiempo.date_format' => 'The tiempo does not match the format HH:mm:ss 00:00:01 - 99:99:99.',
         ];
     }
 }

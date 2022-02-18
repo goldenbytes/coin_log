@@ -25,8 +25,20 @@ class StorePlan extends FormRequest
     {
         return [
             'nick'=>'required|max:255',
-            'tiempo'=>'required|date',
+            'tiempo'=>'required|date_format:y:i:s',
             'valor'=>'required|numeric',
+        ];
+    }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'tiempo.date_format' => 'The tiempo does not match the format HH:mm:ss 00:00:01 - 99:99:99.',
         ];
     }
 }
