@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEquipo;
-use App\Models\Dueno;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -58,7 +57,7 @@ class EquiposController extends Controller
      */
     public function show($id)
     {
-        return response()->json(Dueno::find($id));
+        return response()->json(Equipo::with('planes','dueno')->find($id));
     }
 
     /**
