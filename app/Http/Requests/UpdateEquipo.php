@@ -27,6 +27,8 @@ class UpdateEquipo extends FormRequest
             'id'=>'required|exists:equipos,id_eq',
             'nick'=>'nullable|max:255',
             'serial'=>'nullable|max:255',
+            'software'=>'nullable|max:10',
+            'hardware'=>'nullable|max:10',
             'ip'=>'nullable|ip',
             'propietario'=>'nullable|exists:duenos,id_du',
         ];

@@ -44,6 +44,8 @@ class EquiposController extends Controller
         $nuevo->serial_eq = $request->serial;
         $nuevo->ip_eq = $request->ip;
         $nuevo->propietario_eq = $request->propietario;
+        $nuevo->software_eq = $request->software;
+        $nuevo->hardware_eq = $request->hardware;
         $nuevo->save();
         return response()->json($nuevo);
     }
@@ -84,6 +86,8 @@ class EquiposController extends Controller
         $edit->serial_eq = $request->serial ? $request->serial : $edit->serial_eq;
         $edit->ip_eq = $request->ip ? $request->ip : $edit->ip_eq;
         $edit->propietario_eq = $request->propietario ? $request->propietario : $edit->propietario_eq;
+        $edit->software_eq = $request->software ? $request->software : $edit->software_eq;
+        $edit->hardware_eq = $request->hardware ? $request->hardware : $edit->hardware_eq;
         $edit->save();
         return response()->json($edit);
     }

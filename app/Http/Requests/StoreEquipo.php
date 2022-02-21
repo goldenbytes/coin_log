@@ -26,6 +26,8 @@ class StoreEquipo extends FormRequest
         return [
             'nick'=>'required|max:255',
             'serial'=>'required|max:255',
+            'software'=>'nullable|max:10',
+            'hardware'=>'nullable|max:10',
             'ip'=>'nullable|ip',
             'propietario'=>'required|exists:duenos,id_du',
         ];

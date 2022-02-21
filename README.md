@@ -45,6 +45,8 @@ URI: ``/equipos``
 - serial "obligatorio"
 - ip 
 - propietario "obligatorio, id de propietario válido"
+- software "versión de software, maximo 10 caractéres"
+- hardware "versión de hardware, maximo 10 caractéres"
 #### Actualización
 ``PUT``
 ``/1``
@@ -54,6 +56,8 @@ URI: ``/equipos``
 - serial "maximo 255 caracteres"
 - ip
 - propietario "id de propietario válido"
+- software "versión de software, maximo 10 caractéres"
+- hardware "versión de hardware, maximo 10 caractéres"
 
 #### Eliminación
 ``DELETE``
