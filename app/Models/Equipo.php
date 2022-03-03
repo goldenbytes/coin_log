@@ -17,7 +17,7 @@ class Equipo extends Model
     }
 
     public function logs(){
-        return $this->hasMany(Registro::class,"id_eq","equipo_re");
+        return $this->hasMany(Registro::class,"equipo_re","id_eq");
     }
 
     public function planes()

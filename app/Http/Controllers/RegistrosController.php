@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class RegistrosController extends Controller
 {
+
+    private $rowsPerPage = 100;
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +18,7 @@ class RegistrosController extends Controller
      */
     public function index()
     {
-        return response()->json(Registro::paginate(10));
+        return response()->json(Registro::paginate($this->rowsPerPage));
     }
 
     /**
@@ -57,8 +59,12 @@ class RegistrosController extends Controller
      */
     public function show($id)
     {
-        $aux = Equipo::with('logs')->find($id);
-        return response()->json($aux);
+        $aux = Equipo::find($id);
+        $registros = [];
+        if($aux){
+            $registros = $aux->logs()->paginate($this->rowsPerPage);
+        }
+        return response()->json($registros);
     }
 
     /**
