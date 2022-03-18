@@ -9,15 +9,26 @@ class Equipo extends Model
 {
     use HasFactory;
 
-    protected $primaryKey       =       "id_eq";
-    public $incrementing        =       false;
+    protected $primaryKey = "id_eq";
+    public $incrementing = false;
 
-    public function dueno(){
-        return $this->hasOne(Dueno::class,"id_du","propietario_eq");
+    public function getConfigAttribute()
+    {
+        return ([
+            'channel' => class_basename(Equipo::class),
+            'cluster' => env('PUSHER_APP_CLUSTER'),
+            'key' => env('PUSHER_APP_KEY'),
+        ]);
     }
 
-    public function logs(){
-        return $this->hasMany(Registro::class,"equipo_re","id_eq");
+    public function dueno()
+    {
+        return $this->hasOne(Dueno::class, "id_du", "propietario_eq");
+    }
+
+    public function logs()
+    {
+        return $this->hasMany(Registro::class, "equipo_re", "id_eq");
     }
 
     public function planes()

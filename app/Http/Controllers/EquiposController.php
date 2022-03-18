@@ -6,6 +6,7 @@ use App\Http\Requests\StoreEquipo;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use stdClass;
 
 class EquiposController extends Controller
 {
@@ -57,7 +58,12 @@ class EquiposController extends Controller
      */
     public function show($id)
     {
-        return response()->json(Equipo::with('planes','dueno')->find($id));
+        $aux = Equipo::with('planes','dueno')->find($id);
+        if($aux){
+            return response()->json($aux->append('config'));
+        }else{
+            return response()->json(new stdClass(),404);
+        }
     }
 
     /**
