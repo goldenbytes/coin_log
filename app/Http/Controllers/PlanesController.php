@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UpdateEquipoConfig;
 use App\Http\Requests\StorePlan;
 use App\Http\Requests\UpdatePlan;
 use App\Models\Plan;
-use Illuminate\Http\Request;
 
 class PlanesController extends Controller
 {
@@ -77,11 +77,14 @@ class PlanesController extends Controller
      */
     public function update(UpdatePlan $request, $id)
     {
-        $edit = Plan::find($request->id);
+        $edit = Plan::find($id);
         $edit->nombre_pl = $request->nick ? $request->nick : $edit->nombre_pl;
         $edit->tiempo_pl = $request->tiempo ? $request->tiempo : $edit->tiempo_pl;
         $edit->valor_pl = $request->valor ? $request->valor : $edit->valor_pl;
         $edit->save();
+        foreach($edit->equipos as $equipo){
+            UpdateEquipoConfig::dispatch($equipo);
+        }
         return response()->json($edit);
     }
 
@@ -95,6 +98,9 @@ class PlanesController extends Controller
     {
         $del = Plan::find($id);
         if($del){
+            foreach($del->equipos as $equipo){
+                UpdateEquipoConfig::dispatch($equipo);
+            }
             $del->delete();
             return response()->json($del);
         }else{

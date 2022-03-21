@@ -87,7 +87,7 @@ class EquiposController extends Controller
      */
     public function update(UpdateEquipo $request, $id)
     {
-        $edit = Equipo::find($request->id);
+        $edit = Equipo::find($id);
         $edit->nombre_eq = $request->nick ? $request->nick : $edit->nombre_eq;
         $edit->serial_eq = $request->serial ? $request->serial : $edit->serial_eq;
         $edit->ip_eq = $request->ip ? $request->ip : $edit->ip_eq;

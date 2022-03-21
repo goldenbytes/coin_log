@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Events\UpdateEquipoConfig;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Equipo extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $primaryKey = "id_eq";
     public $incrementing = false;
@@ -19,6 +21,10 @@ class Equipo extends Model
             'key' => env('PUSHER_APP_KEY'),
         ]);
     }
+
+    protected $dispatchesEvents = [
+        'saved' => UpdateEquipoConfig::class,
+    ];
 
     public function dueno()
     {

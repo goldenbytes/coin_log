@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Comando extends Model
 {
-    use HasFactory,Notifiable;
+    use HasFactory, Notifiable;
 
     protected $primaryKey = "id_co";
     public $incrementing = false;
@@ -25,7 +25,8 @@ class Comando extends Model
         'created' => ComandoEquipo::class,
     ];
 
-    public function getDuracionCoAttribute(){
+    public function getDuracionCoAttribute()
+    {
         $t1 = Carbon::parse($this->created_at);
         $t2 = Carbon::parse($this->updated_at);
         $diff = $t1->diff($t2);

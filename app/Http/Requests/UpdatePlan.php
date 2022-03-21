@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Route;
 
 class UpdatePlan extends FormRequest
 {
@@ -31,12 +32,12 @@ class UpdatePlan extends FormRequest
         ];
     }
 
-//    public function validationData()
-//    {
-//        return array_merge($this->request->all(), [
-//            'id' => Route::input('plane'),
-//        ]);
-//    }
+    public function validationData()
+    {
+        return array_merge($this->request->all(), [
+            'id' => Route::input('plane'),
+        ]);
+    }
 
     /**
      * Get the error messages for the defined validation rules.

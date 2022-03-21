@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Route;
 
 class UpdateDueno extends FormRequest
 {
@@ -30,5 +31,12 @@ class UpdateDueno extends FormRequest
             'celular'=>'nullable|min:12|max:12',
             'email'=>'nullable|email:rfc,dns|max:255',
         ];
+    }
+
+    public function validationData()
+    {
+        return array_merge($this->request->all(), [
+            'id' => Route::input('dueno'),
+        ]);
     }
 }

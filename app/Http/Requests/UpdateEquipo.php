@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Route;
 
 class UpdateEquipo extends FormRequest
 {
@@ -32,5 +33,12 @@ class UpdateEquipo extends FormRequest
             'ip'=>'nullable|ip',
             'propietario'=>'nullable|exists:duenos,id_du',
         ];
+    }
+
+    public function validationData()
+    {
+        return array_merge($this->request->all(), [
+            'id' => Route::input('equipo'),
+        ]);
     }
 }
