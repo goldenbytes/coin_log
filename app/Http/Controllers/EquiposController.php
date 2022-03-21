@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEquipo;
+use App\Http\Requests\UpdateEquipo;
 use App\Models\Equipo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -84,7 +85,7 @@ class EquiposController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateEquipo $request, $id)
     {
         $edit = Equipo::find($request->id);
         $edit->nombre_eq = $request->nick ? $request->nick : $edit->nombre_eq;
