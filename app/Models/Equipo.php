@@ -15,7 +15,6 @@ class Equipo extends Model
     public function getConfigAttribute()
     {
         return ([
-            'channel' => class_basename(Equipo::class),
             'cluster' => env('PUSHER_APP_CLUSTER'),
             'key' => env('PUSHER_APP_KEY'),
         ]);

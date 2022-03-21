@@ -21,6 +21,7 @@ Route::resource('duenos',\App\Http\Controllers\DuenosController::class);
 Route::resource('equipos',\App\Http\Controllers\EquiposController::class);
 Route::resource('registros',\App\Http\Controllers\RegistrosController::class);
 Route::resource('planes',\App\Http\Controllers\PlanesController::class);
+Route::resource('comandos',\App\Http\Controllers\ComandosController::class);
 
 Route::post('plan/equipo', [\App\Http\Controllers\PlanesEquiposController::class, 'store']);
 Route::put('plan/equipo', [\App\Http\Controllers\PlanesEquiposController::class, 'update']);
