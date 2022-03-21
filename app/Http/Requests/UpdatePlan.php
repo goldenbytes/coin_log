@@ -26,10 +26,17 @@ class UpdatePlan extends FormRequest
         return [
             'id'=>'required|exists:planes,id_pl',
             'nick'=>'nullable|max:255',
-            'tiempo'=>'required|date_format:y:i:s',
+            'tiempo'=>'nullable|date_format:y:i:s',
             'valor'=>'nullable|numeric',
         ];
     }
+
+//    public function validationData()
+//    {
+//        return array_merge($this->request->all(), [
+//            'id' => Route::input('plane'),
+//        ]);
+//    }
 
     /**
      * Get the error messages for the defined validation rules.
