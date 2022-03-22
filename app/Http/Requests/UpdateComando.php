@@ -34,7 +34,7 @@ class UpdateComando extends FormRequest
     public function validationData()
     {
         return array_merge($this->request->all(), [
-            'id' => Route::input('id'),
+            'id' => Route::input('comando'),
         ]);
     }
 }
