@@ -27,7 +27,7 @@ class UpdateComando extends FormRequest
         return [
             'id' => 'exists:comandos,id_co',
             'success' => 'boolean',
-            'out' => 'required|max:20',
+            'out' => 'nullable',
         ];
     }
 
