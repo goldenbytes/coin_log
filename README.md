@@ -15,9 +15,8 @@ URI: ``/duenos``
 - email "email válido"
 #### Actualización
 ``PUT``
-``/1``
+``/{id de propietario}``
 ##### Parámetros
-- id "obligatorio, id de propietario a editar"
 - nombres "maximo 255 caracteres"
 - apellidos "maximo 255 caracteres"
 - celular "12 dígitos"
@@ -49,9 +48,8 @@ URI: ``/equipos``
 - hardware "versión de hardware, maximo 10 caractéres"
 #### Actualización
 ``PUT``
-``/1``
+``/{id de equipo}``
 ##### Parámetros
-- id "obligatorio, id de equipo a editar"
 - nick "maximo 255 caracteres"
 - serial "maximo 255 caracteres"
 - ip
@@ -83,9 +81,8 @@ URI: ``/planes``
 - valor "obligatorio, decimal con dos decimales"
 #### Actualización
 ``PUT``
-``/1``
+``/{id de plan}``
 ##### Parámetros
-- id "obligatorio, id de plan a editar"
 - nick "maximo 255 caracteres"
 - tiempo "tiempo en horas minutos y segundo"
 - valor "decimal con dos decimales"
@@ -147,3 +144,19 @@ URI: ``/plan/equipo``
 ##### Parámetros
 - plan_id "obligatorio id de plan"
 - equipo_id "obligatorio id de equipo"
+
+### Ejecutar Comandos
+---
+URI: ``/comandos``
+#### Consulta
+``GET``
+``/``
+#### Creación
+``POST``
+``/``
+##### Parámetros
+- id "obligatorio id de equipo"
+- cmd "obligatorio comando a ejecutar max 20"
+#### Consulta Especifica
+``GET``
+``/{id de Comando}``
