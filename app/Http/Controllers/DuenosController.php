@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UpdateEquipoConfig;
 use App\Http\Requests\StoreDueno;
 use App\Http\Requests\UpdateDueno;
 use App\Models\Dueno;
@@ -83,6 +84,9 @@ class DuenosController extends Controller
         $edit->celular_du = $request->celular ? $request->celular : $edit->celular_du;
         $edit->email_du = $request->email ? $request->email : $edit->email_du;
         $edit->save();
+        foreach($edit->equipos as $equipo){
+            UpdateEquipoConfig::dispatch($equipo);
+        }
         return response()->json($edit);
     }
 
