@@ -155,7 +155,7 @@ URI: ``/comandos``
 ``POST``
 ``/``
 ##### Parámetros
-- id "obligatorio id de equipo"
+- equipo_id "obligatorio id de equipo"
 - cmd "obligatorio comando a ejecutar max 20"
 #### Consulta Especifica
 ``GET``

@@ -40,7 +40,7 @@ class ComandosController extends Controller
     {
         $nuevo = new Comando();
         $nuevo->id_co = Str::uuid()->toString();
-        $nuevo->equipo_co = $request->id;
+        $nuevo->equipo_co = $request->equipo_id;
         $nuevo->comando_co = $request->cmd;
         $nuevo->save();
         return response()->json($nuevo);

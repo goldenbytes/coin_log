@@ -24,7 +24,7 @@ class StoreComando extends FormRequest
     public function rules()
     {
         return [
-            'id'=>'exists:equipos,id_eq',
+            'equipo_id'=>'required|exists:equipos,id_eq',
             'cmd'=>'required|max:20',
         ];
     }

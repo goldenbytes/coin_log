@@ -15,7 +15,7 @@ class Comando extends Model
     protected $primaryKey = "id_co";
     public $incrementing = false;
 
-    protected $appends = ['duracion_co'];
+    protected $appends = ['duracion_co', 'ejecutado_co'];
 
     protected $casts = [
         'exito_co' => 'boolean',
@@ -31,5 +31,10 @@ class Comando extends Model
         $t2 = Carbon::parse($this->updated_at);
         $diff = $t1->diff($t2);
         return $diff->s;
+    }
+
+    public function getEjecutadoCoAttribute()
+    {
+        return $this->created_at === $this->updated_at;
     }
 }
