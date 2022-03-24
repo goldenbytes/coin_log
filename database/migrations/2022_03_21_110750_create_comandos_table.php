@@ -16,7 +16,7 @@ class CreateComandosTable extends Migration
         Schema::create('comandos', function (Blueprint $table) {
             $table->uuid('id_co')->primary();
             $table->foreignUuid('equipo_co');
-            $table->string('comando_co',20);
+            $table->string('comando_co',100);
             $table->text('salida_co')->nullable();
             $table->boolean('exito_co')->default(false);
             $table->foreign('equipo_co')->references('id_eq')->on('equipos');

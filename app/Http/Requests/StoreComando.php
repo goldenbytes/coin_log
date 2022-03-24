@@ -25,7 +25,7 @@ class StoreComando extends FormRequest
     {
         return [
             'equipo_id'=>'required|exists:equipos,id_eq',
-            'cmd'=>'required|max:20',
+            'cmd'=>'required|max:100',
         ];
     }
 }
