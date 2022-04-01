@@ -115,6 +115,8 @@ URI: ``/registros``
 #### Consulta
 ``GET``
 ``/``
+- inicio "Fecha desde" no obligatorio ex. 2020/12/01
+- fin "Fecha hasta" no obligatorio ex.
 
 #### Consulta Especifica
 ``GET``

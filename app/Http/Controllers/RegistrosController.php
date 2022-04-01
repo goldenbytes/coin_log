@@ -16,9 +16,18 @@ class RegistrosController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Registro::paginate($this->rowsPerPage));
+        if($request->inicio && $request->fin){
+            $aux = Registro::whereBetween('created_at', [$request->inicio, $request->fin])->latest()->paginate($this->rowsPerPage);
+        }elseif ($request->fin){
+            $aux = Registro::whereDate('created_at', '<=',$request->fin)->latest()->paginate($this->rowsPerPage);
+        }elseif ($request->inicio){
+            $aux = Registro::whereDate('created_at', '>=',$request->inicio)->latest()->paginate($this->rowsPerPage);
+        }else{
+            $aux = Registro::latest()->paginate($this->rowsPerPage);
+        }
+        return response()->json($aux);
     }
 
     /**
