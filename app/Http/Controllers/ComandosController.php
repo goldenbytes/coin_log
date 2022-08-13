@@ -43,7 +43,7 @@ class ComandosController extends Controller
         $nuevo->equipo_co = $request->equipo_id;
         $nuevo->comando_co = $request->cmd;
         $nuevo->save();
-        return response()->json($nuevo);
+        return response()->json(['id'=>$nuevo->id_co]);
     }
 
     /**
