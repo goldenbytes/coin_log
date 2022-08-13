@@ -29,7 +29,7 @@ class Comando extends Model
     {
         $t1 = Carbon::parse($this->created_at);
         $t2 = Carbon::parse($this->updated_at);
-        $diff = $t1->diff($t2);
-        return $diff->s;
+        $diff = $t1->diffInSeconds($t2);
+        return $diff;
     }
 }
