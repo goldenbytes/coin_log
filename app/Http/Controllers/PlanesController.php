@@ -61,11 +61,20 @@ class PlanesController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $del = Plan::withTrashed()->find($id);
+        if($del){
+            $del->restore();
+            foreach($del->equipos as $equipo){
+                UpdateEquipoConfig::dispatch($equipo);
+            }
+            return response()->json($del);
+        }else{
+            return response([],404);
+        }
     }
 
     /**
@@ -98,10 +107,10 @@ class PlanesController extends Controller
     {
         $del = Plan::find($id);
         if($del){
+            $del->delete();
             foreach($del->equipos as $equipo){
                 UpdateEquipoConfig::dispatch($equipo);
             }
-            $del->delete();
             return response()->json($del);
         }else{
             return response([],404);
