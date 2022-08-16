@@ -90,7 +90,6 @@ URI: ``/planes``
 #### Eliminación
 ``DELETE``
 ``/{id de plan}``
-xs
 #### Recuperar Eliminación
 ``GET``
 ``/{id de plan}/edit``
