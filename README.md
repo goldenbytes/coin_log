@@ -163,7 +163,7 @@ URI: ``/comandos``
 ``/``
 ##### Parámetros
 - equipo_id "obligatorio id de equipo"
-- cmd "obligatorio comando a ejecutar max 20"
+- cmd "obligatorio comando a ejecutar max 100"
 #### Consulta Especifica
 ``GET``
 ``/{id de Comando}``
