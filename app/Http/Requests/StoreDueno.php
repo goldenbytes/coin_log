@@ -28,6 +28,7 @@ class StoreDueno extends FormRequest
             'apellidos'=>'required|max:255',
             'celular'=>'nullable|min:12|max:12',
             'email'=>'nullable|email:rfc,dns|max:255',
+            'token'=>'nullable',
         ];
     }
 }

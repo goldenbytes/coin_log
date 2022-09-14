@@ -13,6 +13,7 @@ URI: ``/duenos``
 - apellidos "obligatorio"
 - celular "12 dígitos"
 - email "email válido"
+- token
 #### Actualización
 ``PUT``
 ``/{id de propietario}``
@@ -21,6 +22,7 @@ URI: ``/duenos``
 - apellidos "maximo 255 caracteres"
 - celular "12 dígitos"
 - email "email válido"
+- token
 
 #### Eliminación
 ``DELETE``

@@ -42,6 +42,7 @@ class DuenosController extends Controller
         $nuevo->apellidos_du = $request->apellidos;
         $nuevo->celular_du = $request->celular;
         $nuevo->email_du = $request->email;
+        $nuevo->token_du = $request->token;
         $nuevo->save();
         return response()->json($nuevo);
     }
@@ -83,6 +84,7 @@ class DuenosController extends Controller
         $edit->apellidos_du = $request->apellidos ? $request->apellidos : $edit->apellidos_du;
         $edit->celular_du = $request->celular ? $request->celular : $edit->celular_du;
         $edit->email_du = $request->email ? $request->email : $edit->email_du;
+        $edit->token_du = $request->token ? $request->token : $edit->token_du;
         $edit->save();
         foreach($edit->equipos as $equipo){
             UpdateEquipoConfig::dispatch($equipo);
