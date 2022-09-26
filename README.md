@@ -122,6 +122,8 @@ URI: ``/registros``
 ``/``
 - inicio "Fecha desde" no obligatorio ex. 2020/12/01
 - fin "Fecha hasta" no obligatorio ex.
+- sortBy "nombre de columna para ordenar" no obligatorio ex. created_at
+- sortDesc "bandera si ordena decendentemente" no obligatorio ex. true | false
 
 #### Consulta Especifica
 ``GET``

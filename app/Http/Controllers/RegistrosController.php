@@ -18,14 +18,16 @@ class RegistrosController extends Controller
      */
     public function index(Request $request)
     {
+        $sort = @$request->sortBy ? $request->sortBy : 'created_at';
+        $desc = @$request->sortDesc ? $request->sortDesc==='true' : false;
         if($request->inicio && $request->fin){
-            $aux = Registro::whereBetween('created_at', [$request->inicio, $request->fin])->latest()->paginate($this->rowsPerPage);
+            $aux = Registro::whereBetween('created_at', [$request->inicio, $request->fin])->orderBy($sort, $desc ? 'desc' : 'asc')->paginate($request->rowsPerPage);
         }elseif ($request->fin){
-            $aux = Registro::whereDate('created_at', '<=',$request->fin)->latest()->paginate($this->rowsPerPage);
+            $aux = Registro::whereDate('created_at', '<=',$request->fin)->orderBy($sort, $desc ? 'desc' : 'asc')->paginate($request->rowsPerPage);
         }elseif ($request->inicio){
-            $aux = Registro::whereDate('created_at', '>=',$request->inicio)->latest()->paginate($this->rowsPerPage);
+            $aux = Registro::whereDate('created_at', '>=',$request->inicio)->orderBy($sort, $desc ? 'desc' : 'asc')->paginate($request->rowsPerPage);
         }else{
-            $aux = Registro::latest()->paginate($this->rowsPerPage);
+            $aux = Registro::orderBy($sort, $desc ? 'desc' : 'asc')->paginate($request->rowsPerPage);
         }
         return response()->json($aux);
     }
