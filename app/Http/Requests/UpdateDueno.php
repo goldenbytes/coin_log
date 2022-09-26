@@ -28,7 +28,7 @@ class UpdateDueno extends FormRequest
             'id'=>'required|exists:duenos,id_du',
             'nombres'=>'nullable|max:255',
             'apellidos'=>'nullable|max:255',
-            'celular'=>'nullable|min:12|max:12',
+            'celular'=>'nullable|min:10|max:12',
             'email'=>'nullable|email:rfc,dns|max:255',
             'token'=>'nullable',
         ];

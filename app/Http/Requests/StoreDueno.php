@@ -26,7 +26,7 @@ class StoreDueno extends FormRequest
         return [
             'nombres'=>'required|max:255',
             'apellidos'=>'required|max:255',
-            'celular'=>'nullable|min:12|max:12',
+            'celular'=>'nullable|min:10|max:12',
             'email'=>'nullable|email:rfc,dns|max:255',
             'token'=>'nullable',
         ];

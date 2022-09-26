@@ -79,7 +79,7 @@ class DuenosController extends Controller
      */
     public function update(UpdateDueno $request, $id)
     {
-        $edit = Dueno::find($request->id);
+        $edit = Dueno::find($id);
         $edit->nombres_du = $request->nombres ? $request->nombres : $edit->nombres_du;
         $edit->apellidos_du = $request->apellidos ? $request->apellidos : $edit->apellidos_du;
         $edit->celular_du = $request->celular ? $request->celular : $edit->celular_du;
