@@ -68,14 +68,20 @@ class RegistrosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show($id,Request $request)
     {
-        $aux = Equipo::find($id);
-        $registros = [];
-        if($aux){
-            $registros = $aux->logs()->paginate($this->rowsPerPage);
+        $sort = @$request->sortBy ? $request->sortBy : 'created_at';
+        $desc = @$request->sortDesc ? $request->sortDesc==='true' : false;
+        if($request->inicio && $request->fin){
+            $aux = Registro::where('equipo_re',$id)->whereBetween('created_at', [$request->inicio, $request->fin])->orderBy($sort, $desc ? 'desc' : 'asc')->paginate($request->rowsPerPage);
+        }elseif ($request->fin){
+            $aux = Registro::where('equipo_re',$id)->whereDate('created_at', '<=',$request->fin)->orderBy($sort, $desc ? 'desc' : 'asc')->paginate($request->rowsPerPage);
+        }elseif ($request->inicio){
+            $aux = Registro::where('equipo_re',$id)->whereDate('created_at', '>=',$request->inicio)->orderBy($sort, $desc ? 'desc' : 'asc')->paginate($request->rowsPerPage);
+        }else{
+            $aux = Registro::where('equipo_re',$id)->orderBy($sort, $desc ? 'desc' : 'asc')->paginate($request->rowsPerPage);
         }
-        return response()->json($registros);
+        return response()->json($aux);
     }
 
     /**

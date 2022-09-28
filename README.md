@@ -129,6 +129,11 @@ URI: ``/registros``
 #### Consulta Especifica
 ``GET``
 ``/{id de Equipo}``
+- inicio "Fecha desde" no obligatorio ex. 2020/12/01
+- fin "Fecha hasta" no obligatorio ex.
+- sortBy "nombre de columna para ordenar" no obligatorio ex. created_at
+- sortDesc "bandera si ordena decendentemente" no obligatorio ex. true | false
+- rowsPerPage "numero catidad de registros" no obligatorio ex. 100
 
 ### Planes para Equipos
 ---
