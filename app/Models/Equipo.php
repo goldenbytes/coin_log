@@ -22,6 +22,12 @@ class Equipo extends Model
         ]);
     }
 
+    public function getSaldoAttribute()
+    {
+        $query = $this->hasOne(Registro::class, "equipo_re", "id_eq")->latest('created_at')->first();
+        return $query->saldo_re;
+    }
+
     protected $dispatchesEvents = [
         'saved' => UpdateEquipoConfig::class,
     ];

@@ -61,7 +61,7 @@ class EquiposController extends Controller
     {
         $aux = Equipo::with('planes','dueno')->find($id);
         if($aux){
-            return response()->json($aux->append('config'));
+            return response()->json($aux->append(['config']));
         }else{
             return response()->json(new stdClass(),404);
         }
